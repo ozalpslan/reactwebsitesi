@@ -74,12 +74,6 @@ function App5() {
 
   return (
     <div style={{ padding: "1rem" }}>
-      <h2
-        style={{ textAlign: "center", marginBottom: "1rem", color: "#FFD700" }}
-      >
-        Sertifikalarım
-      </h2>
-
       <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
         {sortedCerts.map((cert) => (
           <div

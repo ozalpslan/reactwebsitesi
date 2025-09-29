@@ -68,7 +68,7 @@ function App() {
             <img
               src="/1745486526672.jpg"
               className="rounded-circle mb-3"
-              style={{ width: "100px", height: "100px", marginTop: "10px" }}
+              style={{ width: "100px", heighct: "100px", marginTop: "10px" }}
             />
             <CategorySlider />
           </div>
@@ -126,6 +126,7 @@ function App() {
           style={{
             backgroundColor: bgColor,
             paddingLeft: 0,
+            paddingRight: 0,
             paddingTop: topPadding,
             position: "relative",
             height: "100vh",

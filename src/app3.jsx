@@ -68,7 +68,6 @@ function App3() {
 
   return (
     <div style={{ padding: "2rem" }}>
-      <h2 style={{ color: "#FFD700", marginBottom: "1.5rem" }}>Portfolio</h2>
       <div
         style={{
           display: "grid",

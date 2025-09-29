@@ -86,4 +86,9 @@
     right: auto !important;
     margin: 0 auto;
   }
+  .custom-scroll {
+    padding-left: 1rem !important; /* veya 0 isteğine göre */
+    margin-left: 0 !important;
+  }
 }
+/* Mobilde main content soldan başlasın */

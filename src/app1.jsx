@@ -1,4 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import "./app1.css";
+
 import {
   Radar,
   RadarChart,
@@ -29,6 +31,7 @@ function TimelineItem({ year, title, desc }) {
 }
 
 function App1() {
+  // Skills
   const [skills] = useState([
     { subject: "Python", A: 95, fullMark: 100 },
     { subject: "SQL", A: 80, fullMark: 100 },
@@ -37,37 +40,62 @@ function App1() {
     { subject: "C#", A: 65, fullMark: 100 },
   ]);
 
-  const languages = [
+  // Languages
+  const [languages] = useState([
     { lang: "Turkish", emoji: "🇹🇷", level: 100 },
     { lang: "English", emoji: "🇬🇧", level: 70 },
     { lang: "German", emoji: "🇩🇪", level: 10 },
-  ];
+  ]);
 
-  // FastAPI’den gelecek veriler için state
-  const [timeline, setTimeline] = useState([]);
-  const [certificates, setCertificates] = useState([]);
+  // Timeline (statik veri)
+  const [timeline] = useState([
+    {
+      year: "2025",
+      title: "Kişisel React Web Sitesi",
+      desc: "React, FastAPI, AWS EC2 ve Docker kullanarak CV ve portfolyo için geliştirdiğim web sitesi.",
+    },
+    {
+      year: "2024",
+      title: "Arabam.com Fiyat Tahmini",
+      desc: "Araç verilerini scrape edip temizledim, ML modelleriyle fiyat tahmini pipeline kurdum.",
+    },
+    {
+      year: "2024",
+      title: "Ders Özetleme Projesi",
+      desc: "Online ders videolarını dinleyip özetleyen ve önemli noktaları çıkartan Python tabanlı uygulama.",
+    },
+    {
+      year: "2023",
+      title: "İTÜ Deep Learning Datathon",
+      desc: "CNN modelleriyle şehir yapılarını tahmin eden proje.",
+    },
+    {
+      year: "2023",
+      title: "YTÜ ML Datathon",
+      desc: "XGBoost kullanarak makine bakım tahmini pipeline geliştirdim.",
+    },
+    {
+      year: "2023",
+      title: "OBSS AI Intern",
+      desc: "Image Captioning üzerine LLM tabanlı proje deneyimi.",
+    },
+  ]);
 
-  useEffect(() => {
-    // FastAPI’den experience timeline verisi
-    fetch("http://localhost:8000/api/timeline")
-      .then((res) => res.json())
-      .then((data) => setTimeline(data))
-      .catch((err) => console.error("Timeline fetch error:", err));
-
-    // FastAPI’den certificates verisi
-    fetch("http://localhost:8000/api/certificates")
-      .then((res) => res.json())
-      .then((data) => setCertificates(data))
-      .catch((err) => console.error("Certificates fetch error:", err));
-  }, []);
+  // Certificates (statik veri)
+  const [certificates] = useState([
+    { title: "AWS Certified Cloud Practitioner", year: "2025" },
+    { title: "Deep Learning Specialization", year: "2024" },
+    { title: "Data Science Bootcamp", year: "2024" },
+  ]);
 
   return (
     <div
+      className="main-content"
       style={{
         color: "#fff",
-        padding: "2rem",
+        padding: "2rem 2rem",
         maxWidth: "1200px",
-        margin: "auto",
+        margin: "0 auto",
       }}
     >
       {/* About */}
@@ -210,15 +238,6 @@ function App1() {
             desc={item.desc}
           />
         ))}
-
-        {/* Örnek comment olarak FastAPI’den gelen veri formatı */}
-        {/*
-        [
-          { "year": "2025", "title": "ITU Deep Learning Datathon", "desc": "Worked with CNN models using PyTorch on city image datasets." },
-          { "year": "2025", "title": "YTU Machine Learning Datathon", "desc": "Predicted machine maintenance needs with XGBoost." },
-          { "year": "2024", "title": "QNB Finansbank Intern", "desc": "C# programming and web development internship." }
-        ]
-        */}
       </div>
 
       {/* Certificates */}
@@ -242,15 +261,6 @@ function App1() {
             {c.title} ({c.year})
           </motion.div>
         ))}
-
-        {/* Örnek comment olarak FastAPI’den gelen veri formatı */}
-        {/*
-        [
-          { "title": "AWS Certified Cloud Practitioner", "year": "2025" },
-          { "title": "Deep Learning Specialization", "year": "2024" },
-          { "title": "Data Science Bootcamp", "year": "2024" }
-        ]
-        */}
       </div>
 
       {/* Download CV */}
@@ -261,7 +271,7 @@ function App1() {
         whileTap={{ scale: 0.95 }}
         style={{
           display: "inline-block",
-          marginTop: "2rem",
+          marginTop: "4rem",
           padding: "0.75rem 1.5rem",
           background: "#FFD700",
           color: "#222",
