@@ -1,0 +1,36 @@
+.slider-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* X ekseninde ortalama */
+  height: 100%; /* container yüksekliği col-2 ile uyumlu */
+}
+
+.category-wrapper {
+  overflow: hidden; /* üstten veya alttan taşmayı engelle */
+  height: 2.8rem; /* her kelimenin yüksekliği */
+  display: flex;
+  justify-content: center; /* kayan kelime X ekseninde ortalanır */
+  width: 100%;
+}
+
+.category-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* kelime ortalanır */
+}
+
+.category-item {
+  height: 2.8rem;
+  line-height: 2.8rem;
+  color: #fff;
+  text-shadow: 0 0 2px #fff; /* 5px → 2px, daha soft */
+  text-align: center;
+  white-space: nowrap;
+}
+
+.knowledge {
+  font-weight: bold;
+  color: #ffd700;
+  text-shadow: 0 0 3px #ffd700; /* 8px → 3px, daha yumuşak */
+  font-size: 1.5rem;
+}

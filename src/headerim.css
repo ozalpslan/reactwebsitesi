@@ -1,0 +1,52 @@
+.kenarlargidik {
+  border-radius: 20px; /* köşeleri yuvarlak yapmak istersen */
+}
+
+.nav-sari {
+  color: #ffd700; /* normal sarı */
+  text-decoration: none; /* alt çizgiyi kaldır */
+  transition: all 0.2s ease-in-out; /* yumuşak geçiş */
+}
+
+.nav-sari:hover {
+  color: #ffe766; /* daha açık sarı */
+  text-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700; /* glow efekti */
+}
+
+.headerim-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.5rem 1rem;
+  background-color: #242323ff;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 20px;
+  z-index: 1000;
+}
+
+.navbar-nav .nav-link {
+  color: #d9d9d9;
+  font-weight: normal;
+  transition: color 0.2s;
+}
+
+.navbar-nav .nav-link.nav-sari {
+  color: inherit;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ffe55c;
+}
+
+@media (max-width: 768px) {
+  .headerim-container {
+    top: 8vh; /* üstten boşluk */
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    border-top-left-radius: 0; /* üst sol köşe düz */
+    border-top-right-radius: 0; /* üst sağ köşe düz */
+    border-bottom-left-radius: 20px; /* alt sol köşe düz */
+    border-bottom-right-radius: 20px; /* alt sağ köşe yuvarlak */
+  }
+}
