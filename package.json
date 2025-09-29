@@ -11,20 +11,10 @@
     "tailwindcss": "4.1.13",
     "motion": "12.23.22",
     "axios": "1.12.2",
-    "lucide-react": "0.544.0",
     "bootstrap": "5.3.8",
-    "react-pdf": "10.1.0",
-    "@babel/helper-plugin-utils": "7.27.1",
-    "@babel/runtime": "7.28.4",
-    "@babel/plugin-proposal-private-methods": "7.18.6",
-    "@react-pdf-viewer/core": "3.12.0",
-    "@react-pdf-viewer-fork/core": "4.0.3",
-    "@react-pdf-viewer/default-layout": "3.12.0",
-    "pdfjs-dist": "5.4.149",
-    "@gerhobbelt/babel-plugin-proposal-private-methods": "7.2.1-26",
     "recharts": "3.2.1",
     "react-is": "19.1.1",
-    "@radix-ui/react-progress": "1.1.7"
+    "lucide-react": "0.544.0"
   },
   "devDependencies": {
     "@types/react": "19.0.0",
