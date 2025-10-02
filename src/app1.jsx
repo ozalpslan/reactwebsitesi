@@ -11,6 +11,7 @@ import {
 } from "recharts";
 import { motion } from "framer-motion";
 
+// Timeline component
 function TimelineItem({ year, title, desc }) {
   return (
     <motion.div
@@ -43,7 +44,6 @@ function App1() {
     { lang: "German", emoji: "🇩🇪", level: 10 },
   ]);
 
-  // API'den gelecek state'ler
   const [timeline, setTimeline] = useState([]);
   const [certificates, setCertificates] = useState([]);
 
@@ -81,11 +81,60 @@ function App1() {
 
       {/* Languages */}
       <h3>Languages</h3>
-      {languages.map((l, i) => (
-        <div key={i}>
-          {l.lang} - {l.level}%
-        </div>
-      ))}
+      <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+        {languages.map((l, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: i * 0.2 }}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "1rem",
+            }}
+          >
+            <span style={{ fontSize: "1.2rem" }}>{l.emoji}</span>
+            <div style={{ flex: 1 }}>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  marginBottom: "0.25rem",
+                }}
+              >
+                <span>{l.lang}</span>
+                <span>{l.level}%</span>
+              </div>
+              <div
+                style={{
+                  height: "10px",
+                  background: "#333",
+                  borderRadius: "5px",
+                  overflow: "hidden",
+                }}
+              >
+                <motion.div
+                  initial={{ width: 0 }}
+                  whileInView={{ width: `${l.level}%` }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 1.2,
+                    ease: "easeInOut",
+                    delay: i * 0.3,
+                  }}
+                  style={{
+                    height: "100%",
+                    background: "#FFD700",
+                    borderRadius: "5px",
+                  }}
+                />
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
 
       {/* Timeline */}
       <h3 style={{ marginTop: "2rem" }}>Experience Timeline</h3>
