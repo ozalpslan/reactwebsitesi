@@ -1,70 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 function App3() {
-  const [data] = useState([
-    {
-      title: "Kişisel React Web Sitesi",
-      description:
-        "React, FastAPI, AWS EC2 ve Docker kullanarak CV ve portfolyo için geliştirdiğim web sitesi.",
-      link: "https://github.com/ozalpslan/websitesi",
-      important: 1,
-    },
-    {
-      title: "Streamlit Çalışmaları",
-      description: "Streamlit ile yaptığım küçük ML/AI projeleri ve denemeler.",
-      link: "https://github.com/ozalpslan/streamlit",
-      important: 0,
-    },
-    {
-      title: "Arabam.com Fiyat Tahmini",
-      description:
-        "Araç verilerini scrape edip temizledim, ML modelleriyle fiyat tahmini pipeline kurdum.",
-      link: "https://github.com/ozalpslan/Araba-Deger-Tahmini-Projesi",
-      important: 1,
-    },
-    {
-      title: "Ses Kaydı & Transkripsiyon Sistemi",
-      description:
-        "Türkçe sesleri yazıya döken ve BART modeli ile özetleyen Python tabanlı LLM projesi.",
-      link: "https://github.com/ozalpslan/Audio-Transcriber-and-Summerizer",
-      important: 1,
-    },
-    {
-      title: "Katıldığım Yarışmalar",
-      description:
-        "İTÜ Deep Learning Datathon (CNN), YTÜ ML Datathon (XGBoost), OBSS AI Intern (Image Captioning).",
-      link: "https://github.com/ozalpslan/Katildigim-Yarismalar",
-      important: 1,
-    },
-    {
-      title: "Leetcode Çalışmaları",
-      description:
-        "Algoritma & problem çözme alıştırmaları. JavaScript/Python çözümleri.",
-      link: "https://github.com/ozalpslan/Leetcode",
-      important: 0,
-    },
-    {
-      title: "Kredi Riski Analizi",
-      description:
-        "Derin öğrenme yöntemleriyle kredi riski tahmini modeli geliştirdim.",
-      link: "https://github.com/ozalpslan/Derin-ogrenme-ile-kredi-riski-analizi",
-      important: 0,
-    },
-    {
-      title: "Ev Fiyat Tahmini",
-      description:
-        "Neural Networks ile ev fiyat tahmin modeli (HousePricingPredict).",
-      link: "https://github.com/ozalpslan/HousePricingPredict",
-      important: 0,
-    },
-    {
-      title: "Akbank Python Bootcamp Projesi",
-      description: "OOP tabanlı Python kütüphane sistemi geliştirdiğim proje.",
-      link: "https://github.com/ozalpslan/Akbank-python-bootcamp-projesi",
-      important: 0,
-    },
-  ]);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch("/api/projects")
+      .then((res) => res.json())
+      .then((projects) => setData(projects))
+      .catch((err) => console.error(err));
+  }, []);
 
   return (
     <div style={{ padding: "2rem" }}>
@@ -76,7 +21,7 @@ function App3() {
         }}
       >
         {data
-          .sort((a, b) => b.important - a.important) // Önemliler üstte
+          .sort((a, b) => b.important - a.important)
           .map((item, index) => (
             <motion.div
               key={index}
